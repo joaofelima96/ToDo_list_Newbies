@@ -63,6 +63,14 @@ function createNewTaskEL(taskName, taskId) {
     deleteIcon.classList.add("delete_btn");
     deleteIcon.addEventListener("click", deleteTask);
 
+    leftContent.appendChild(todoIcon);
+    leftContent.appendChild(doneIcon);
+    leftContent.appendChild(name);
+
+    task.appendChild(leftContent);
+    task.appendChild(deleteIcon);
+
+    return task;
 }
 
 // add new task
@@ -79,6 +87,8 @@ function addTask(event) {
     }
 
     taskData.push(newTask);
+    const taskElement = createNewTaskEL(newTask.name, newTask.id);
+    taskList.appendChild(taskElement);
 }
 
 // complete task
