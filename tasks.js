@@ -21,9 +21,23 @@ const addTaskButton = document.getElementsByTagName("button")[0];
 const taskList = document.getElementById("tasks_list");
 
 // add new task
+function addTask(event) {
+    event.preventDefault();
+    console.log('Add task');
 // complete task
+function completeTask(event) {
+    console.log('Complete task');
+}
+
 // incomplete task
+function incompleteTask(event) {
+    console.log('Incomplete Task');
+}
+
 // delete task
+function deleteTask(event) {
+    console.log('Delete Task');
+}
 // sync html with taskDataList
 
 //counter task
