@@ -28,6 +28,11 @@ const taskList = document.getElementById("tasks_list");
 
 function createNewTaskEL(taskName, taskId) {
     // create task li
+    let task = document.createElement("li");
+    task.classList.add("task");
+    task.classList.add("todo");
+    task.setAttribute("id", taskId);
+
     // create .left_content div
     // todo icon
     // done icon
