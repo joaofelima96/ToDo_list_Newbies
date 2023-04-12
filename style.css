@@ -51,6 +51,7 @@ button:nover
 {
     cursor: pointer;
 } */
+/* ---------------------- WRAPPER BELLOW ---------------------- */
 
 .wrapper {
     max-width: 46rem;
@@ -74,4 +75,19 @@ button:nover
     {
         grid-template-columns: 1fr;
     } */
+}
+
+/* ---------------------- HEADDER BELLOW ---------------------- */
+
+headder {
+    display: flex;
+    /* Utilizado por padrão para centralizar conteúdos em linha
+    /* pois o display flex, por padrão, já vem ajustado dessa forma */
+    justify-content: center;
+    /* Poderia ser usado o align-items, porém, este ajusta o conteúdo em coluna
+    /* para funcionar, teria que ser habilitado o flex-direction: colum */
+
+    /* Descontando o valor do gap discriminado na estilização do wrapper */
+    padding: calc(6.75rem - 2rem) 0;
+}
 }
