@@ -223,4 +223,20 @@ headder {
 .empty_tasks div p:first-child {
     font-weight: bold;
 }
+
+/* ---------------------- TASKS LIST BELLOW ---------------------- */
+
+.tasks_list {
+    list-style: none;
+
+    display: flex;
+    flex-direction: column;
+    max-width: 46rem;
+}
+
+
+/* ---------------------- HIDDEN BELLOW ---------------------- */
+
+.hidden {
+    display: none;
 }
