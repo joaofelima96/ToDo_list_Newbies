@@ -276,6 +276,31 @@ headder {
     color: var(--white);
 }
 
+/* ---------------------- TODO TASK BELLOW ---------------------- */
+
+.todo .check_btn {
+    color: var(--gray-200);
+}
+
+.todo .check_btn:hover {
+    color: var(--green-500);
+}
+
+/* ---------------------- DONE TASK BELLOW ---------------------- */
+
+.done div .risked {
+    text-decoration: line-through;
+    color: var(--gray-200);
+}
+
+.done .check_btn {
+    color: var(--green-500);
+
+}
+
+.done .check_btn:hover {
+    color: var(--yellow-500);
+}
 
 /* ---------------------- HIDDEN BELLOW ---------------------- */
 
