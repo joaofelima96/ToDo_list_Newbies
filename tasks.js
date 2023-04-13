@@ -23,9 +23,29 @@ const addTaskInput = document.getElementById("task_input");
 // nesse caso, só temos um botão, então, ele consequentemente está no índice 0
 const addTaskButton = document.getElementsByTagName("button")[0];
 const taskList = document.getElementById("tasks_list");
+const todoCounterText = document.getElementById("todo_count");
+const doneCounterText = document.getElementById("done_count");
+
+// counter
+function counter() {
+    let toDoCounter = 0;
+    let doneCounter = 0;
+
+    toDoCounter = taskData.length;
+    todoCounterText.innerText = `${toDoCounter}`;
+
+    for (const task of taskData) {
+        if (task.toDo === false) {
+            doneCounter++;
+        }
+    }
+
+    doneCounterText.innerText = `${doneCounter}`;
+}
+
+counter();
 
 // create new task element
-
 function createNewTaskEL(taskName, taskId) {
     // create task li
     let task = document.createElement("li");
@@ -91,6 +111,7 @@ function addTask(event) {
     taskList.appendChild(taskElement);
 
     addTaskInput.value = ''
+    counter();
 }
 
 // complete task
@@ -117,6 +138,7 @@ function completeTask(event) {
             item.toDo = false;
         }
     })
+    counter();
 }
 
 // incomplete task
@@ -143,6 +165,7 @@ function incompleteTask(event) {
             item.toDo = true;
         }
     })
+    counter();
 }
 
 // delete task
@@ -158,6 +181,7 @@ function deleteTask(event) {
 
     taskData = tasksWithoutDeletedOne;
     taskList.removeChild(taskToDelete);
+    counter();
 }
 // sync html with taskDataList
 
@@ -171,5 +195,3 @@ for (const task of taskData) {
     const taskItem = createNewTaskEL(task.name, task.id);
     taskList.appendChild(taskItem);
 }
-
-//counter task
