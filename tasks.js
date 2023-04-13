@@ -11,7 +11,7 @@ let taskData = [
     {
         id: uid(),
         name: 'Terminar as aulas de FrontEnd',
-        toDo: false,
+        toDo: true,
     }
 ]
 
@@ -96,6 +96,24 @@ function addTask(event) {
 // complete task
 function completeTask(event) {
     console.log('Complete task');
+
+    todoIcon = event.target;
+    todoIcon.classList.add("hidden");
+
+    const taskToCompleteId = todoIcon.parentNode.parentNode.id
+    const taskToComplete = document.getElementById(taskToCompleteId);
+
+    taskToComplete.classList.add("done");
+    taskToComplete.classList.remove("todo");
+
+    const doneIcon = todoIcon.parentNode.childNodes[1];
+    doneIcon.classList.remove("hidden");
+
+    taskData.find((item) => {
+        if (item.id === taskToCompleteId) {
+            item.toDo = false;
+        }
+    })
 }
 
 // incomplete task
