@@ -107,7 +107,6 @@ function createNewTaskEL(taskName, taskId) {
 // add new task
 function addTask(event) {
     event.preventDefault();
-    console.log('Add task');
 
     const newTaskName = addTaskInput.value;
 
@@ -128,7 +127,6 @@ function addTask(event) {
 
 // complete task
 function completeTask(event) {
-    console.log('Complete task');
 
     todoIcon = event.target;
     todoIcon.classList.add("hidden");
@@ -155,7 +153,6 @@ function completeTask(event) {
 
 // incomplete task
 function incompleteTask(event) {
-    console.log('Incomplete Task');
 
     doneIcon = event.target;
     doneIcon.classList.add("hidden");
@@ -182,7 +179,6 @@ function incompleteTask(event) {
 
 // delete task
 function deleteTask(event) {
-    console.log('Delete Task');
 
     const taskToDeleteId = event.target.parentNode.id;
     const taskToDelete = document.getElementById(taskToDeleteId);
