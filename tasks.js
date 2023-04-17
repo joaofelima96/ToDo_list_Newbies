@@ -129,7 +129,7 @@ function addTask(event) {
 // complete task
 function completeTask(event) {
 
-    todoIcon = event.target;
+    const todoIcon = event.target;
     todoIcon.classList.add("hidden");
 
     const text = todoIcon.parentNode.childNodes[2];
