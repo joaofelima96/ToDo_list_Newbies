@@ -2,18 +2,7 @@ function uid() {
     return Date.now().toString(16) + Math.random().toString(16).substring(2);
 }
 
-let taskData = [
-    {
-        id: uid(),
-        name: 'Ver se eu to na esquina',
-        toDo: true,
-    },
-    {
-        id: uid(),
-        name: 'Terminar as aulas de FrontEnd',
-        toDo: true,
-    }
-]
+let taskData = []
 
 // capturando os elementos por um id para utilizar no JS
 const addTaskInput = document.getElementById("task_input");
@@ -26,6 +15,17 @@ const taskList = document.getElementById("tasks_list");
 const todoCounterText = document.getElementById("todo_count");
 const doneCounterText = document.getElementById("done_count");
 const emptyTasks = document.getElementById("empty_tasks");
+
+// saved tasks function
+function savedTask() {
+    localStorage.setItem("savedTask", JSON.stringify(taskData));
+}
+
+const getTasks = JSON.parse(localStorage.getItem("savedTask"));
+
+if (getTasks != null) {
+    taskData = getTasks;
+}
 
 // empty tasks
 function verfyIfListIsEmpty() {
@@ -123,6 +123,7 @@ function addTask(event) {
     addTaskInput.value = ''
     counter();
     verfyIfListIsEmpty();
+    savedTask();
 }
 
 // complete task
@@ -191,6 +192,7 @@ function deleteTask(event) {
     taskList.removeChild(taskToDelete);
     counter();
     verfyIfListIsEmpty();
+    savedTask();
 }
 // sync html with taskDataList
 
