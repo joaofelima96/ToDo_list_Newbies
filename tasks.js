@@ -128,7 +128,8 @@ function addTask(event) {
     const taskElement = createNewTaskEL(newTask.name, newTask.id);
     taskList.appendChild(taskElement);
 
-    addTaskInput.value = ''
+    addTaskInput.value = "";
+    addTaskInput.dispatchEvent(new Event("input"));
     counter();
     verfyIfListIsEmpty();
     savedTask();
