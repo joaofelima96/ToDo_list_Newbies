@@ -27,6 +27,14 @@ if (getTasks != null) {
     taskData = getTasks;
 }
 
+addTaskInput.addEventListener("input", function () {
+    if (addTaskInput.value === "") {
+        addTaskButton.disabled = true;
+    } else {
+        addTaskButton.disabled = false;
+    }
+});
+
 // empty tasks
 function verfyIfListIsEmpty() {
     if (taskData.length === 0) {
