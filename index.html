@@ -8,14 +8,19 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Todo List Newbies</title>
+    <title>ToDo List Newbies</title>
 
-    <!-- Phosphor -->
-    <!-- <link
+    <link
+    rel="stylesheet"
+    type="text/css"
+    href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/duotone/style.css"
+    />
+
+    <link
     rel="stylesheet"
     type="text/css"
     href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/bold/style.css"
-    /> -->
+    />
 
     <link rel="stylesheet" href="style.css">
 
@@ -30,35 +35,63 @@
 
         <main>
             <form class = "new_task_form">
-                <input type="text" placeholder="Adicione uma nova tarefa"/>
-                <button type="submi">Criar</button>
+                <!-- o "id" serve para o js identificar este elemento -->
+                <input id="task_input" type="text" placeholder="Adicione uma nova tarefa"/>
+                <button type="submit" onclick="addTask(event)" disabled>
+                    Criar <i class="ph-bold ph-plus-circle"></i>
+                </button>
             </form>
 
-            <section class = "counter">
-                <p>
+            <section class = "tasks_counter">
+                <div class="all_tasks">
                     <strong>Tarefas criadas</strong>
-                    <span>3</span>
-                </p>
-                <p>
+                    <span id="todo_count" class="count">0</span>
+                </div>
+                <div class="done_tasks">
                     <strong>Tarefas concluídas</strong>
-                    <span>4</span>
-                </p>
+                    <span id="done_count" class="count">0</span>
+                </div>
             </section>
 
-            <section class = "empty_tasks">
-                <img src="./assets/empty_tasks.svg" alt="">
+            <section id="empty_tasks" class = "empty_tasks hidden">
+                <img src="./assets/empty-tasks.svg" alt=""/>
                 <div>
                     <p>Você ainda não tem tarefas cadastradas</p>
                     <p>Crie tarefas e organize seus itens a fazer</p>
                 </div>
             </section>
 
-            <ul class ="tasks_list">
-                <li class = "task">
-                    <p>Terminar as aulas de FrontEnd</p>
+            <ul id="tasks_list" class ="tasks_list">
+                <!-- <li class = "task todo">
+                    <div class="left_content">
+                        <i 
+                        class="ph-duotone ph-circle-dashed check_btn" 
+                        onclick="completeTask(event)"
+                        ></i>
+                        <p>Terminar as aulas de FrontEnd</p>
+                    </div>
+                    <i 
+                    class="ph-duotone ph-trash delete_btn" 
+                    onclick="deleteTask(event)"
+                    ></i>
                 </li>
+                <li class = "task done">
+                    <div class="left_content">
+                        <i 
+                        class="ph-duotone ph-check-circle check_btn" 
+                        onclick="incompleteTask(event)"
+                        ></i>
+                        <p class="risked">Terminar as aulas de FrontEnd</p>
+                    </div>
+                    <i 
+                    class="ph-duotone ph-trash delete_btn" 
+                    onclick="deleteTask(event)"
+                    ></i>
+                </li> -->
             </ul>
         </main>
     </div>
+    
+    <script src="tasks.js"></script>
   </body>
 </html>
