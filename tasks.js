@@ -159,6 +159,7 @@ function completeTask(event) {
         }
     })
     counter();
+    savedTask();
 }
 
 // incomplete task
@@ -185,6 +186,7 @@ function incompleteTask(event) {
         }
     })
     counter();
+    savedTask();
 }
 
 // delete task
@@ -213,5 +215,9 @@ function deleteTask(event) {
 
 for (const task of taskData) {
     const taskItem = createNewTaskEL(task.name, task.id);
+    if (!task.toDo) {
+        taskItem.classList.add("done");
+        // estava tentando adicionar aqui outras classes para o icone "done" e o "risked"
+    }
     taskList.appendChild(taskItem);
 }
