@@ -216,8 +216,11 @@ function deleteTask(event) {
 for (const task of taskData) {
     const taskItem = createNewTaskEL(task.name, task.id);
     if (!task.toDo) {
+        taskItem.classList.remove("todo");
         taskItem.classList.add("done");
-        // estava tentando adicionar aqui outras classes para o icone "done" e o "risked"
+        taskItem.querySelector(".ph-circle-dashed").classList.add("hidden");
+        taskItem.querySelector(".ph-check-circle").classList.remove("hidden");
+        taskItem.querySelector("p").classList.add("risked");
     }
     taskList.appendChild(taskItem);
 }
